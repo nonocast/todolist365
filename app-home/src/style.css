@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PingFang SC';
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+body {
+    background-color: #fff;
+}
+
+.container {
+    background: url(images/bg_top+banner.jpg) no-repeat top center fixed;
+    background-size: cover;
+    width: 100vw;
+}
+
+.bg_top_banner {
+    background: url(images/bg_top+banner_top.png) no-repeat top center;
+    background-size: cover;
+    height: 200vh;
+}
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 15vw;
+}
+
+h4 {
+    font: 600 32px/45px 'PingFang SC';
+    color: #fff;
+}
+
+header .login {
+    padding: 12px 32px;
+    border-radius: 4px;
+    font: 600 32px/45px 'PingFang SC';
+    text-decoration: none;
+    color: #fff;
+    background-color: transparent;
+}
+
+header .login:hover {
+    cursor: pointer;
+    /* background-color: #fff; */
+    /* color: #3a7b53; */
+    background-color: #ee7f67;
+    /* color: #32383ed8; */
+    color: #efefef;
+}
+
+.banner .center {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 13vh;
+}
+
+h1 {
+    font: 600 64px/90px 'PingFang SC';
+    color: #fff;
+    text-align: center;
+}
+
+.banner .center .control {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.center .try {
+    visibility: hidden;
+    margin-top: 24px;
+    border-radius: 2px;
+    outline: 1px solid #fff;
+    width: 150px;
+    height: 44px;
+    font: 600 24px/34px 'PingFang SC';
+    color: #fff;
+    background-color: transparent;
+}
+
+.bg_top_banner .ex {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    padding: 0 64px 32px 64px;
+}
+
+.bg_top_banner .ex .control {
+    width: 100%;
+    background: url(images/ex.jpg) no-repeat top center;
+    background-size: contain;
+}
+
+.content {
+    height: 335vh;
+    width: 100vw;
+    background: #fff url(images/content_bg.jpg) no-repeat top center;
+    background-size: contain;
+}
+
+.content .top {
+    display: flex;
+    justify-content: center;
+    height: 35vh;
+}
+
+.content .top .control {
+    display: flex;
+    flex-direction: column;
+    padding: 8vh 0;
+}
+
+h2 {
+    text-align: center;
+    font: 600 56px/78px 'PingFang SC';
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: -webkit-gradient(linear, left 0, right 0, from(#5a9370), to(#40ad66), to(#50885c));
+}
+
+.content .top p {
+    padding-top: 24px;
+    font: 300 32px/45px 'PingFang SC';
+}
+
+.content section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    margin: 0 13vw;
+}
+
+.content .reverse {
+    flex-direction: row-reverse;
+}
+
+.content section .img_1 {
+    height: 70vh;
+    flex: 1;
+    background: url(images/img_1.jpg) no-repeat center center;
+    background-size: contain;
+}
+
+.content section .img_2 {
+    height: 70vh;
+    flex: 1;
+    background: url(images/img_2.jpg) no-repeat center center;
+    background-size: contain;
+}
+
+.content section .img_3 {
+    height: 70vh;
+    flex: 1;
+    background: url(images/img_3.jpg) no-repeat center center;
+    background-size: contain;
+}
+
+.content section .middle_control {
+    width: 20vw;
+    height: 100%;
+}
+
+.content section .control {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.content section h2 {
+    text-align: left;
+    -webkit-text-fill-color: #32383ed8;
+    background-image: none;
+}
+
+.content section p {
+    margin-top: 32px;
+    font: 300 32px/45px 'PingFang';
+    color: #32383ed8;
+}

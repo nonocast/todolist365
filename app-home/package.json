@@ -1,0 +1,10 @@
+{
+  "name": "app-home",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "docker": "docker build -t registry.cn-shanghai.aliyuncs.com/nonocast/todolist365-app-home:latest && docker push registry.cn-shanghai.aliyuncs.com/nonocast/todolist365-app-home:latest",
+    "dockerx": "docker buildx build -t registry.cn-shanghai.aliyuncs.com/nonocast/todolist365-app-home:latest --platform=linux/amd64 -o type=docker . && docker push registry.cn-shanghai.aliyuncs.com/nonocast/todolist365-app-home:latest"
+  }
+}
