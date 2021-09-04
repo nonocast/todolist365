@@ -1,0 +1,1 @@
+window.BACKEND_BAE = 'http://localhost';

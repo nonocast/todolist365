@@ -1,0 +1,40 @@
+log:
+  level: INFO
+
+global:
+  checkNewVersion: true
+  sendAnonymousUsage: true
+
+entryPoints:
+  web:
+    address: ":80"
+
+api:
+  insecure: true
+  dashboard: true
+
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+
+# http:
+#   routers:
+#     redirections:
+#       rule: "Host(`console.h705c.io`)"
+#       service: dummyservice
+#       middlewares:
+#         - "foo"
+
+#   middlewares:
+#     foo:
+#       redirectRegex:
+#         regex: "^https?://console.h705c.io"
+#         replacement: "https://www.google.com"
+#         permanent: true
+
+#   services:
+#     dummyservice:
+#       loadBalancer:
+#         servers:
+#           - url: "http://1.1.1.1:80"

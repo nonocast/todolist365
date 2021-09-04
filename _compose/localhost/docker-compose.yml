@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  traefik:
+    image: traefik:v2.5
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./traefik.yaml:/etc/traefik/traefik.yaml"
+
+  # http://ip/admin
+  app-admin:
+    image: todolist365-app-admin
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.admin.entrypoints=web"
+      - "traefik.http.routers.admin.rule=Host(`h705c.io`)"
+      - "traefik.http.routers.admin.rule=PathPrefix(`/console`)"
+
+  test:
+    image: containous/whoami
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.entrypoints=web"
+      - "traefik.http.routers.whoami.rule=Host(`console.h705c.io`)"
+      - "traefik.http.routers.whoami.middlewares=foo"
+      - "traefik.http.middlewares.foo.redirectRegex.regex=^console.h705c.io"
+      - "traefik.http.middlewares.foo.redirectRegex.replacement=h705c.io/console"
+      - "traefik.http.middlewares.foo.redirectRegex.permanent=true"
+
+
+  # app-user:
+  #   image: todolist365-app-user
+  #   labels:
+  #     - 'traefik.http.routers.admin.rule=PathPrefix(`/app`)'
