@@ -19,7 +19,39 @@ services:
       - "traefik.http.routers.admin.rule=Host(`h705c.io`)"
       - "traefik.http.routers.admin.rule=PathPrefix(`/console`)"
 
-  test:
+  app-user:
+    image: todolist365-app-user
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.user.entrypoints=web"
+      - "traefik.http.routers.user.rule=Host(`h705c.io`)"
+      - "traefik.http.routers.user.rule=PathPrefix(`/app`)"
+
+  service-id:
+    image: service-id
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.id.entrypoints=web"
+      - "traefik.http.routers.id.rule=Host(`h705c.io`)"
+      - "traefik.http.routers.id.rule=PathPrefix(`/id`)"
+      - 'traefik.http.routers.id.middlewares=id-stripprefix'
+      - 'traefik.http.middlewares.id-stripprefix.stripprefix.prefixes=/id'
+      - 'traefik.http.middlewares.id-stripprefix.stripprefix.forceSlash=false'
+      - 'traefik.http.services.id.loadbalancer.server.port=3000'
+
+  service-task:
+    image: todolist365-service-task
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.task.entrypoints=web"
+      - "traefik.http.routers.task.rule=Host(`h705c.io`)"
+      - "traefik.http.routers.task.rule=PathPrefix(`/api`)"
+      - 'traefik.http.routers.task.middlewares=task-stripprefix'
+      - 'traefik.http.middlewares.task-stripprefix.stripprefix.prefixes=/api'
+      - 'traefik.http.middlewares.task-stripprefix.stripprefix.forceSlash=false'
+      - 'traefik.http.services.task.loadbalancer.server.port=3000'
+
+  redirections:
     image: containous/whoami
     labels:
       - "traefik.enable=true"
@@ -30,8 +62,3 @@ services:
       - "traefik.http.middlewares.foo.redirectRegex.replacement=h705c.io/console"
       - "traefik.http.middlewares.foo.redirectRegex.permanent=true"
 
-
-  # app-user:
-  #   image: todolist365-app-user
-  #   labels:
-  #     - 'traefik.http.routers.admin.rule=PathPrefix(`/app`)'

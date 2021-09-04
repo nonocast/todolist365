@@ -1,13 +1,13 @@
 {
-  "name": "service-id",
+  "name": "service-task",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start": "webpack --config webpack.dev.config.js",
     "build": "webpack --config webpack.prod.config.js",
-    "docker-local": "docker build -t service-id .",
-    "docker": "docker build -t registry.cn-shanghai.aliyuncs.com/h705c/service-id:latest && docker push registry.cn-shanghai.aliyuncs.com/h705c/service-id:latest"
+    "docker-local": "docker build -t todolist365-service-task .",
+    "docker": "docker build -t registry.cn-shanghai.aliyuncs.com/h705c/todolist365-service-task:latest && docker push registry.cn-shanghai.aliyuncs.com/h705c/todolist365-service-task:latest"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^9.0.1",
